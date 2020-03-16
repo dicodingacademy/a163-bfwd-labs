@@ -54,7 +54,7 @@ function main() {
     };
 
     const showResponseMessage = (message = "Check your internet connection") => {
-        alert("Check your internet connection");
+        alert(message);
     };
 
     document.addEventListener("DOMContentLoaded", () => {
