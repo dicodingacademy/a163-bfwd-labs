@@ -1,5 +1,3 @@
-@import "clublist.css";
-
 * {
     padding: 0;
     margin: 0;
@@ -14,4 +12,11 @@ main {
     width: 90%;
     max-width: 800px;
     margin: 32px auto;
+}
+
+club-list {
+    display: block;
+    margin-top: 32px;
+    width: 100%;
+    padding: 16px;
 }
