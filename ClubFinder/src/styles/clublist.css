@@ -1,0 +1,45 @@
+#clubList {
+    margin-top: 32px;
+    width: 100%;
+    padding: 16px;
+}
+
+#clubList > .placeholder {
+    font-weight: lighter;
+    color: rgba(0,0,0,0.5);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.club {
+    margin-bottom: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.club .fan-art-club {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.club-info {
+    padding: 24px;
+}
+
+.club-info > h2 {
+    font-weight: lighter;
+}
+
+.club-info > p {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10; /* number of lines to show */
+}
