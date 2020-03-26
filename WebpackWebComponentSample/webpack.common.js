@@ -15,10 +15,6 @@ module.exports = {
                 test: /\.css$/i,
                 include: /styles/,
                 use: ["style-loader", "css-loader"]
-            },
-            {
-                test: /\.html$/i,
-                use: ["html-loader"]
             }
         ]
     },
