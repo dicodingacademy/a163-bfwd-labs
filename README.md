@@ -5,7 +5,7 @@ Silakan lihat branch untuk melihat berkas atau source code yang diinginkan.
 Berikut adalah contoh penerapan bootstrap dengan menggunakan Webpack.
 
 ### Notes
-Jangan gunakan versi JQuery 5 ketika menggunakan webpack, beberapa fitur tidak akan berfungsi seperti toggle-navigation pada tampilan mobile. 
+Jangan gunakan versi JQuery 5 ketika menggunakan bootstrap versi 4, beberapa fitur tidak akan berfungsi seperti toggle-navigation pada tampilan mobile. 
 
 Gunakan kombinasi dependencies berikut:
 
