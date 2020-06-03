@@ -8,12 +8,14 @@ module.exports = {
             filename: path.resolve(__dirname, 'dist/index.html'),
             template: path.resolve(__dirname, 'src/template.html')
         }),
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, 'src/images'),
-                to: path.resolve(__dirname, 'dist/images')
-            }
-        ])
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/images'),
+                    to: path.resolve(__dirname, 'dist/images')
+                }
+            ]
+        })
 
     ]
 };
