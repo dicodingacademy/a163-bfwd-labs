@@ -1,5 +1,5 @@
 // global style
-import "./styles/main.css";
+import './styles/main.css';
 
 // component
-import "./components/card-element";
+import './components/card-element';
