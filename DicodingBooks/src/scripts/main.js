@@ -1,6 +1,6 @@
 function main() {
 
-  const baseUrl = 'https://web-server-book-dicoding.appspot.com';
+  const baseUrl = 'https://books-api.dicoding.dev';
 
   const getBook = async () => {
     try {
