@@ -1,22 +1,21 @@
 figure {
-    border: thin #c0c0c0 solid;
-    display: flex;
-    flex-flow: column;
-    padding: 5px;
-    max-width: 220px;
-    margin: auto;
-}
+  max-width: 220px;
+  padding: 5px;
+  margin: auto;
+  border: thin #c0c0c0 solid;
 
+  display: flex;
+  flex-flow: column;
+}
 
 figure > img {
-    max-width: 220px;
+  max-width: 220px;
 }
 
-
 figure > figcaption {
-    background-color: #222;
-    color: #fff;
-    font: italic smaller sans-serif;
-    padding: 3px;
-    text-align: center;
+  padding: 3px;
+  background-color: #222;
+  text-align: center;
+  font: italic smaller sans-serif;
+  color: #fff;
 }

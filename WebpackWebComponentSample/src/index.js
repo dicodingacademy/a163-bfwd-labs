@@ -1,4 +1,4 @@
-import "./styles/main.css";
+import './styles/main.css';
 
 // component
-import "./components/image-figure";
+import './components/image-figure';
