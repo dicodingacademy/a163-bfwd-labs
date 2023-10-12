@@ -5,9 +5,44 @@
     <title>Image Figure</title>
   </head>
   <body>
+    <style>
+      figure {
+        max-width: 220px;
+        margin: 0;
+        padding: 5px;
+        border: 1px #c0c0c0 solid;
+
+        display: flex;
+        flex-flow: column;
+      }
+
+      figure > img {
+        max-width: 100%;
+      }
+
+      figure > figcaption {
+        padding: 3px;
+        background-color: #222;
+
+        text-align: center;
+
+        color: #fff;
+        font-family: sans-serif;
+        font-size: smaller;
+        font-style: italic;
+      }
+    </style>
+
     <image-figure img="src/logo-g.jpg" imgAlt="Dicoding Logo g">
       <span>Huruf g dalam logo Dicoding</span>
     </image-figure>
+
+    <hr />
+
+    <figure>
+      <img src="src/logo-g.jpg" alt="Dicoding Logo g" width="220" />
+      <figcaption>Huruf g dalam logo Dicoding</figcaption>
+    </figure>
 
     <script type="module" src="src/main.js"></script>
   </body>
