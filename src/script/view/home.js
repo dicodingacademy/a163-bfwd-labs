@@ -20,7 +20,7 @@ const home = () => {
     showClubList();
   };
 
-  const onSearchHandler = async (event) => {
+  const onSearchHandler = (event) => {
     event.preventDefault();
 
     const query = event.target.elements.name.value;
