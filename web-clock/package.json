@@ -1,18 +1,17 @@
 {
-  "name": "webclock",
+  "name": "web-clock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "your_name <your_email@mail.com>",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1",
-    "moment": "^2.24.0"
+    "jquery": "^3.7.1",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
-    "http-server": "^0.12.1"
+    "http-server": "^14.1.1"
   }
 }
