@@ -1,10 +1,11 @@
 /*
-  jangan ubah kode di bawah ini ya!
+  PERINGATAN: Jangan ubah kode di bawah ini!
 */
 
-import 'regenerator-runtime';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.css';
+
+import 'regenerator-runtime';
 import main from './scripts/main';
 
 main();

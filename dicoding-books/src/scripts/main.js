@@ -1,34 +1,29 @@
 function main() {
-
   const getBook = () => {
-    // tuliskan kode di sini!
+    // Tuliskan kode di sini!
   };
 
   const insertBook = (book) => {
-    // tuliskan kode di sini!
+    // Tuliskan kode di sini!
   };
 
   const updateBook = (book) => {
-    // tuliskan kode di sini!
+    // Tuliskan kode di sini!
   };
 
   const removeBook = (bookId) => {
-    // tuliskan kode di sini!
+    // Tuliskan kode di sini!
   };
 
-
-
-
-
   /*
-      jangan ubah kode di bawah ini ya!
+    PERINGATAN: Jangan ubah kode di bawah ini!
   */
 
   const renderAllBooks = (books) => {
     const listBookElement = document.querySelector('#listBook');
     listBookElement.innerHTML = '';
 
-    books.forEach(book => {
+    books.forEach((book) => {
       listBookElement.innerHTML += `
         <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 12px;">
           <div class="card">
@@ -42,9 +37,9 @@ function main() {
       `;
     });
 
-    const buttons = document.querySelectorAll(".button-delete");
-    buttons.forEach(button => {
-      button.addEventListener('click', event => {
+    const buttons = document.querySelectorAll('.button-delete');
+    buttons.forEach((button) => {
+      button.addEventListener('click', (event) => {
         const bookId = event.target.id;
         removeBook(bookId);
       });
@@ -56,7 +51,6 @@ function main() {
   };
 
   document.addEventListener('DOMContentLoaded', () => {
-
     const inputBookId = document.querySelector('#inputBookId');
     const inputBookTitle = document.querySelector('#inputBookTitle');
     const inputBookAuthor = document.querySelector('#inputBookAuthor');
@@ -67,17 +61,17 @@ function main() {
       const book = {
         id: Number.parseInt(inputBookId.value),
         title: inputBookTitle.value,
-        author: inputBookAuthor.value
+        author: inputBookAuthor.value,
       };
 
-      insertBook(book)
+      insertBook(book);
     });
 
     buttonUpdate.addEventListener('click', function () {
       const book = {
         id: Number.parseInt(inputBookId.value),
         title: inputBookTitle.value,
-        author: inputBookAuthor.value
+        author: inputBookAuthor.value,
       };
 
       updateBook(book);
