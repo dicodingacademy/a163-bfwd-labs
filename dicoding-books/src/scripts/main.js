@@ -1,12 +1,11 @@
 function main() {
-
   const baseUrl = 'https://books-api.dicoding.dev';
 
   const getBook = () => {
-    // membuat instance dari XMLHttpRequest
+    // Membuat instance dari XMLHttpRequest
     const xhr = new XMLHttpRequest();
 
-    //menetapkan callback jika response sukses dan error
+    // Menetapkan callback jika response sukses dan error
     xhr.onload = function () {
       const responseJson = JSON.parse(this.responseText);
 
@@ -28,16 +27,15 @@ function main() {
     xhr.send();
   };
 
-
   const insertBook = (book) => {
     // Membuat instance dari XMLHttpRequest
     const xhr = new XMLHttpRequest();
 
-    //menetapkan callback jika response sukses dan error
+    // Menetapkan callback jika response sukses dan error
     xhr.onload = function () {
       const responseJson = JSON.parse(this.responseText);
-      console.log(responseJson);
       showResponseMessage(responseJson.message);
+
       getBook();
     };
 
@@ -60,10 +58,11 @@ function main() {
     // Membuat instance dari XMLHttpRequest
     const xhr = new XMLHttpRequest();
 
-    //menetapkan callback jika response sukses dan error
+    // Menetapkan callback jika response sukses dan error
     xhr.onload = function () {
       const responseJson = JSON.parse(this.responseText);
       showResponseMessage(responseJson.message);
+
       getBook();
     };
 
@@ -86,10 +85,11 @@ function main() {
     // Membuat instance dari XMLHttpRequest
     const xhr = new XMLHttpRequest();
 
-    //menetapkan callback jika response sukses dan error
+    // Menetapkan callback jika response sukses dan error
     xhr.onload = function () {
       const responseJson = JSON.parse(this.responseText);
       showResponseMessage(responseJson.message);
+
       getBook();
     };
 
@@ -107,36 +107,33 @@ function main() {
     xhr.send();
   };
 
-
-
-
-
   /*
-    jangan ubah kode di bawah ini ya!
+    PERINGATAN: Jangan ubah kode di bawah ini!
   */
 
   const renderAllBooks = (books) => {
     const listBookElement = document.querySelector('#listBook');
     listBookElement.innerHTML = '';
 
-    books.forEach(book => {
+    books.forEach((book) => {
       listBookElement.innerHTML += `
         <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 12px;">
           <div class="card">
             <div class="card-body">
               <h5>(${book.id}) ${book.title}</h5>
               <p>${book.author}</p>
-              <button type="button" class="btn btn-danger button-delete" id="${book.id}">Hapus</button>
+              <button type="button" class="btn btn-danger btn-delete" data-id="${book.id}">Hapus</button>
             </div>
           </div>
         </div>
       `;
     });
 
-    const buttons = document.querySelectorAll('.button-delete');
-    buttons.forEach(button => {
-      button.addEventListener('click', event => {
-        const bookId = event.target.id;
+    const deleteButtonElements = document.querySelectorAll('.btn-delete');
+    deleteButtonElements.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const bookId = event.target.dataset.id;
+
         removeBook(bookId);
       });
     });
@@ -147,31 +144,30 @@ function main() {
   };
 
   document.addEventListener('DOMContentLoaded', () => {
+    const bookForm = document.querySelector('form');
 
-    const inputBookId = document.querySelector('#inputBookId');
-    const inputBookTitle = document.querySelector('#inputBookTitle');
-    const inputBookAuthor = document.querySelector('#inputBookAuthor');
-    const buttonSave = document.querySelector('#buttonSave');
-    const buttonUpdate = document.querySelector('#buttonUpdate');
+    const inputBookId = bookForm.elements.inputBookId;
+    const inputBookTitle = bookForm.elements.inputBookTitle;
+    const inputBookAuthor = bookForm.elements.inputBookAuthor;
 
-    buttonSave.addEventListener('click', function () {
+    bookForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
       const book = {
         id: Number.parseInt(inputBookId.value),
         title: inputBookTitle.value,
-        author: inputBookAuthor.value
+        author: inputBookAuthor.value,
       };
 
-      insertBook(book);
-    });
+      switch (event.submitter.textContent) {
+        case 'Save':
+          insertBook(book);
+          break;
 
-    buttonUpdate.addEventListener('click', function () {
-      const book = {
-        id: Number.parseInt(inputBookId.value),
-        title: inputBookTitle.value,
-        author: inputBookAuthor.value
-      };
-
-      updateBook(book);
+        case 'Update':
+          updateBook(book);
+          break;
+      }
     });
 
     getBook();
