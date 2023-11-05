@@ -30,17 +30,24 @@ function main() {
             <div class="card-body">
               <h5>(${book.id}) ${book.title}</h5>
               <p>${book.author}</p>
-              <button type="button" class="btn btn-danger button-delete" id="${book.id}">Hapus</button>
+              <button
+                type="button"
+                class="btn btn-danger btn-delete"
+                data-id="${book.id}"
+              >
+                Hapus
+              </button>
             </div>
           </div>
         </div>
       `;
     });
 
-    const buttons = document.querySelectorAll('.button-delete');
-    buttons.forEach((button) => {
+    const deleteButtonElements = document.querySelectorAll('.btn-delete');
+    deleteButtonElements.forEach((button) => {
       button.addEventListener('click', (event) => {
-        const bookId = event.target.id;
+        const bookId = event.target.dataset.id;
+
         removeBook(bookId);
       });
     });
@@ -51,30 +58,30 @@ function main() {
   };
 
   document.addEventListener('DOMContentLoaded', () => {
-    const inputBookId = document.querySelector('#inputBookId');
-    const inputBookTitle = document.querySelector('#inputBookTitle');
-    const inputBookAuthor = document.querySelector('#inputBookAuthor');
-    const buttonSave = document.querySelector('#buttonSave');
-    const buttonUpdate = document.querySelector('#buttonUpdate');
+    const bookForm = document.querySelector('form');
 
-    buttonSave.addEventListener('click', function () {
+    const inputBookId = bookForm.elements.inputBookId;
+    const inputBookTitle = bookForm.elements.inputBookTitle;
+    const inputBookAuthor = bookForm.elements.inputBookAuthor;
+
+    bookForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
       const book = {
         id: Number.parseInt(inputBookId.value),
         title: inputBookTitle.value,
         author: inputBookAuthor.value,
       };
 
-      insertBook(book);
-    });
+      switch (event.submitter.textContent) {
+        case 'Save':
+          insertBook(book);
+          break;
 
-    buttonUpdate.addEventListener('click', function () {
-      const book = {
-        id: Number.parseInt(inputBookId.value),
-        title: inputBookTitle.value,
-        author: inputBookAuthor.value,
-      };
-
-      updateBook(book);
+        case 'Update':
+          updateBook(book);
+          break;
+      }
     });
 
     getBook();
