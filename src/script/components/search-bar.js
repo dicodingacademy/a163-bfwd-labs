@@ -1,50 +1,50 @@
 class SearchBar extends HTMLElement {
-  #shadowRoot = null;
-  #style = null;
+  _shadowRoot = null;
+  _style = null;
 
-  #submitEvent = 'submit';
-  #searchEvent = 'search';
+  _submitEvent = 'submit';
+  _searchEvent = 'search';
 
   constructor() {
     super();
 
-    this.#shadowRoot = this.attachShadow({ mode: 'open' });
-    this.#style = document.createElement('style');
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
 
     this.render();
   }
 
   _emptyContent() {
-    this.#shadowRoot.innerHTML = '';
+    this._shadowRoot.innerHTML = '';
   }
 
   connectedCallback() {
-    this.#shadowRoot
+    this._shadowRoot
       .querySelector('form')
-      .addEventListener('submit', (event) => this.#onFormSubmit(event, this));
-    this.addEventListener(this.#submitEvent, this.#onSearchBarSubmit);
+      .addEventListener('submit', (event) => this._onFormSubmit(event, this));
+    this.addEventListener(this._submitEvent, this._onSearchBarSubmit);
   }
 
   disconnectedCallback() {
-    this.#shadowRoot
+    this._shadowRoot
       .querySelector('form')
-      .removeEventListener('submit', (event) => this.#onFormSubmit(event, this));
-    this.removeEventListener(this.#submitEvent, this.#onSearchBarSubmit);
+      .removeEventListener('submit', (event) => this._onFormSubmit(event, this));
+    this.removeEventListener(this._submitEvent, this._onSearchBarSubmit);
   }
 
-  #onFormSubmit(event, searchBarInstance) {
+  _onFormSubmit(event, searchBarInstance) {
     searchBarInstance.dispatchEvent(new CustomEvent('submit'));
 
     event.preventDefault();
   }
 
-  #onSearchBarSubmit() {
-    const query = this.#shadowRoot.querySelector('input#name').value;
+  _onSearchBarSubmit() {
+    const query = this._shadowRoot.querySelector('input#name').value;
 
     if (!query) return;
 
     this.dispatchEvent(
-      new CustomEvent(this.#searchEvent, {
+      new CustomEvent(this._searchEvent, {
         detail: { query },
         bubbles: true,
       }),
@@ -52,7 +52,7 @@ class SearchBar extends HTMLElement {
   }
 
   _updateStyle() {
-    this.#style.textContent = `
+    this._style.textContent = `
       :host {
         display: inline;
       }
@@ -152,8 +152,8 @@ class SearchBar extends HTMLElement {
     this._emptyContent();
     this._updateStyle();
 
-    this.#shadowRoot.appendChild(this.#style);
-    this.#shadowRoot.innerHTML += `
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `
       <div class="floating-form">
         <form id="searchForm" class="search-form">
           <div class="form-group">

@@ -1,11 +1,11 @@
 import Utils from '../utils.js';
 
 class ClubList extends HTMLElement {
-  #shadowRoot = null;
-  #style = null;
+  _shadowRoot = null;
+  _style = null;
 
-  #column = 2;
-  #gutter = 16;
+  _column = 2;
+  _gutter = 16;
 
   static get observedAttributes() {
     return ['column', 'gutter'];
@@ -14,14 +14,14 @@ class ClubList extends HTMLElement {
   constructor() {
     super();
 
-    this.#shadowRoot = this.attachShadow({ mode: 'open' });
-    this.#style = document.createElement('style');
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
 
     this.render();
   }
 
   _updateStyle() {
-    this.#style.textContent = `
+    this._style.textContent = `
       :host {
         display: block;
       }
@@ -39,34 +39,34 @@ class ClubList extends HTMLElement {
     const newValue = Number(value);
     if (!Utils.isValidInteger(newValue)) return;
 
-    this.#column = value;
+    this._column = value;
   }
 
   get column() {
-    return this.#column;
+    return this._column;
   }
 
   set gutter(value) {
     const newValue = Number(value);
     if (!Utils.isValidInteger(newValue)) return;
 
-    this.#gutter = value;
+    this._gutter = value;
   }
 
   get gutter() {
-    return this.#gutter;
+    return this._gutter;
   }
 
   _emptyContent() {
-    this.#shadowRoot.innerHTML = '';
+    this._shadowRoot.innerHTML = '';
   }
 
   render() {
     this._emptyContent();
     this._updateStyle();
 
-    this.#shadowRoot.appendChild(this.#style);
-    this.#shadowRoot.innerHTML += `
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `
       <div class="list">
         <slot></slot>
       </div>

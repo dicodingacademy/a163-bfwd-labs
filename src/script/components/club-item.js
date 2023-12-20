@@ -1,7 +1,7 @@
 class ClubItem extends HTMLElement {
-  #shadowRoot = null;
-  #style = null;
-  #club = {
+  _shadowRoot = null;
+  _style = null;
+  _club = {
     idTeam: null,
     strTeam: null,
     strDescriptionEN: null,
@@ -11,27 +11,27 @@ class ClubItem extends HTMLElement {
   constructor() {
     super();
 
-    this.#shadowRoot = this.attachShadow({ mode: 'open' });
-    this.#style = document.createElement('style');
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
   }
 
   _emptyContent() {
-    this.#shadowRoot.innerHTML = '';
+    this._shadowRoot.innerHTML = '';
   }
 
   set club(value) {
-    this.#club = value;
+    this._club = value;
 
     // Render ulang
     this.render();
   }
 
   get club() {
-    return this.#club;
+    return this._club;
   }
 
   _updateStyle() {
-    this.#style.textContent = `
+    this._style.textContent = `
       :host {
         display: block;
         border-radius: 8px;
@@ -73,20 +73,20 @@ class ClubItem extends HTMLElement {
     this._emptyContent();
     this._updateStyle();
 
-    this.#shadowRoot.appendChild(this.#style);
-    this.#shadowRoot.innerHTML += `
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `
       <div class="card">
         <img 
           class="fan-art-club"
-          src="${this.#club.strTeamBadge}" 
-          alt="Fan Art: ${this.#club.strTeam}"
+          src="${this._club.strTeamBadge}" 
+          alt="Fan Art: ${this._club.strTeam}"
         >
         <div class="club-info">
           <div class="club-info__title">
-            <h2>${this.#club.strTeam}</h2>
+            <h2>${this._club.strTeam}</h2>
           </div>
           <div class="club-info__description">
-            <p>${this.#club.strDescriptionEN}</p>
+            <p>${this._club.strDescriptionEN}</p>
           </div>
         </div>
       </div>

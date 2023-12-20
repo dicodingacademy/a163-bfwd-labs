@@ -1,16 +1,16 @@
 class AppBar extends HTMLElement {
-  #shadowRoot = null;
-  #style = null;
+  _shadowRoot = null;
+  _style = null;
 
   constructor() {
     super();
 
-    this.#shadowRoot = this.attachShadow({ mode: 'open' });
-    this.#style = document.createElement('style');
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
+    this._style = document.createElement('style');
   }
 
   _updateStyle() {
-    this.#style.textContent = `
+    this._style.textContent = `
       :host {
         display: block;
         width: 100%;
@@ -33,7 +33,7 @@ class AppBar extends HTMLElement {
   }
 
   _emptyContent() {
-    this.#shadowRoot.innerHTML = '';
+    this._shadowRoot.innerHTML = '';
   }
 
   connectedCallback() {
@@ -44,8 +44,8 @@ class AppBar extends HTMLElement {
     this._emptyContent();
     this._updateStyle();
 
-    this.#shadowRoot.appendChild(this.#style);
-    this.#shadowRoot.innerHTML += `      
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `      
       <div>
         <h1 class="brand-name">Sport Club Finder</h1>
       </div>
