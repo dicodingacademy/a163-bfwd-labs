@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo Test npm script && exit 1"
+    "build": "webpack --config webpack.prod.js",
+    "start-dev": "webpack serve --config webpack.dev.js"
   },
   "keywords": [],
   "author": "your_name <your_email@mail.com>",
