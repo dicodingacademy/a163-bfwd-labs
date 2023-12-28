@@ -158,26 +158,6 @@ main {
   margin-block-start: 32px;
 }
 
-/* Hapus kode di bawah */
-/* .club-list .list {
-  overflow: auto;
-}
-
-.club-list .list > * {
-  float: left;
-  width: 49%;
-
-  margin-block-end: 3%;
-}
-
-.club-list .list > *:nth-child(odd) {
-  float: left;
-}
-
-.club-list .list > *:nth-child(even) {
-  margin-inline-start: 2%;
-} */
-
 .club-list .list {
   display: grid;
   grid-template-columns: 1fr 1fr;
