@@ -18,22 +18,18 @@
 
     <main>
       <div class="container">
-        <section id="club" class="club">
-          <div class="title-section">
-            <h2>Sport Club List</h2>
-          </div>
-
+        <section-with-title id="club" class="club" title="Sport Club List">
           <div id="searchBarContainer" class="search-bar-container">
             <search-bar></search-bar>
           </div>
 
           <div id="clubListContainer" class="club-list-container">
-            <div class="placeholder query-waiting">Waiting for search keyword</div>
-            <div class="placeholder search-loading">Loading</div>
+            <query-waiting></query-waiting>
+            <search-loading></search-loading>
 
             <club-list></club-list>
           </div>
-        </section>
+        </section-with-title>
       </div>
     </main>
 
